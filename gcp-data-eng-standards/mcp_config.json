@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "bq-bridge": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@google-cloud/mcp-server-bigquery"
+      ],
+      "env": {
+        "GCP_PROJECT": "${GCP_PROJECT}",
+        "GCP_LOCATION": "global"
+      }
+    }
+  }
+}
