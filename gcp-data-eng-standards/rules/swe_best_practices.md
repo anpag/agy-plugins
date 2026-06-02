@@ -17,6 +17,7 @@ Follow these principles unless explicitly instructed otherwise:
    - Commit code frequently with atomic, logically separated changes.
    - Write clear, descriptive commit messages explaining the "why" alongside the "what".
    - Ensure branches remain clean and working at all times.
+   - ALWAYS use the user's locally configured Git username and email (`git config user.name`/`user.email`) for all commits and pushes. Never override these with system defaults or placeholder identities like 'gemini coach'.
 
 4. **Automated & Unit Testing**:
    - Write robust unit tests for all logic, including data transformations, ML feature engineering, and utility functions.
