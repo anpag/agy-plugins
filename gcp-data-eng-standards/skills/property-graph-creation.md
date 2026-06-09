@@ -14,6 +14,9 @@ These guidelines govern the creation, schema design, and DDL syntax of BigQuery 
 
 ## 1. Conceptual Foundation of the BigQuery Property Graph Model
 
+> [!IMPORTANT]
+> **Strict Relational Constraints**: When designing BigQuery Property Graphs (SQL-2023), adhere to strict relational constraints: always use `NODE TABLES` (not `VERTEX TABLES`), enforce explicit primary keys on edge tables, and define rigorous foreign key references.
+
 A BigQuery Property Graph is a **logical view** over existing relational tables. Creating a graph does not copy, move, or duplicate any physical data. The graph acts as a metadata abstraction layer.
 
 - **Vertices (Nodes)**: Entities in the graph (e.g., `Person`, `Account`, `College`). They are defined by **Vertex Tables**.
@@ -44,7 +47,7 @@ CREATE OR REPLACE TABLE university.College (
 ### Foreign Key Constraints (Edges)
 Every edge table represents a relationship between a source vertex table and a destination vertex table. To enable this mapping:
 - The edge table must have columns that act as foreign keys pointing to the primary keys of the respective vertex tables.
-- While not strictly required to be declared as foreign keys at the table DDL level, declaring them using `FOREIGN KEY (col) REFERENCES vertex_table (key) NOT ENFORCED` is highly recommended for documentation, validation, and optimization.
+- These foreign key constraints **must be explicitly defined** at the table DDL level using `FOREIGN KEY (col) REFERENCES vertex_table (key) NOT ENFORCED`. Because BigQuery is an analytical database, these constraints must be marked as `NOT ENFORCED` to allow for massive scale, but they remain strictly required by the SQL engine to establish the graph topology.
 
 ```sql
 CREATE OR REPLACE TABLE university.Department (

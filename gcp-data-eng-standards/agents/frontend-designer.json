@@ -2,7 +2,7 @@
   "id": "frontend-designer",
   "type": "agent",
   "description": "System persona prioritizing clean, accessible Next.js React components, modern styling guidelines, and robust API integration.",
-  "requires": [],
+  "requires": ["swe_best_practices"],
   "suggests": [],
   "persona": {
     "name": "Frontend Designer",
