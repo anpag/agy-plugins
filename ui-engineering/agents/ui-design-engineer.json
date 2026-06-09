@@ -2,7 +2,7 @@
   "id": "ui-design-engineer",
   "type": "agent",
   "description": "System persona prioritizing minimalist, professional UI design, clean Next.js React components, and robust API integration.",
-  "requires": ["swe_best_practices"],
+  "requires": ["swe_best_practices", "minimalist-design-system", "wcag-accessibility"],
   "suggests": [],
   "persona": {
     "name": "UI Design Engineer",

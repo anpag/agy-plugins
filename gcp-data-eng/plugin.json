@@ -1,0 +1,5 @@
+{
+  "name": "gcp-data-eng",
+  "version": "1.0.0",
+  "description": "GCP Data Engineering plugin including Property Graph and Data Pipelines standards"
+}

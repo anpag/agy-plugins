@@ -1,0 +1,5 @@
+{
+  "name": "ui-engineering",
+  "version": "1.0.0",
+  "description": "Frontend Engineering plugin including design tokens, accessible components, and Next.js standards"
+}
