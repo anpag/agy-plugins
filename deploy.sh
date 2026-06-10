@@ -3,14 +3,14 @@ set -e
 
 echo "Deploying Global User Profile..."
 cp ./GEMINI.md ~/.gemini/GEMINI.md
-echo "✅ GEMINI.md deployed."
+echo "GEMINI.md deployed."
 
 echo ""
 echo "Installing Plugins globally..."
 agy plugin install ./core-engineering
 agy plugin install ./gcp-data-eng
 agy plugin install ./ui-engineering
-echo "✅ Plugins installed globally in ~/.gemini/config/plugins/"
+echo "Plugins installed globally in ~/.gemini/config/plugins/"
 
 echo ""
 echo "Configuring Antigravity CLI to auto-discover global plugins..."
@@ -28,7 +28,7 @@ cat << 'EOF' > ~/.gemini/antigravity-cli/skills.json
   ]
 }
 EOF
-echo "✅ skills.json configured in ~/.gemini/antigravity-cli/"
+echo "skills.json configured in ~/.gemini/antigravity-cli/"
 
 cat << 'EOF' > ~/.gemini/antigravity-cli/agents.json
 {
@@ -38,8 +38,8 @@ cat << 'EOF' > ~/.gemini/antigravity-cli/agents.json
   ]
 }
 EOF
-echo "✅ agents.json configured in ~/.gemini/antigravity-cli/"
+echo "agents.json configured in ~/.gemini/antigravity-cli/"
 
 echo ""
-echo "🎉 Deployment complete! Your skills and agents are now fully connected."
+echo "Deployment complete! Your skills and agents are now fully connected."
 echo "You can verify them by running: agy --print \"/skills\" and agy --print \"/agents\""

@@ -24,4 +24,8 @@ These are the personal identity, authentication, and workspace constraints for A
    - For any task, proactively inspect the globally registered plugins, their descriptions, and their exposed subagents/skills.
    - If the task aligns with the domain description of an installed plugin, dynamically delegate the execution of that task to the plugin's specialized subagent(s) rather than handling it under a generic persona.
    - Instruct the subagents to automatically load and adhere to their respective plugin skills.
+
+5. **Professional Communication & Documentation**:
+   - NEVER use emojis or emoticons in documentation, comments, scripts, or output logs.
+   - Maintain a highly professional, clinical, and clean tone across all system files and console outputs.
 </swe_best_practices>
