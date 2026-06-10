@@ -1,5 +1,5 @@
 ---
-id: bq-cost-optimisation
+name: bq-cost-optimisation
 type: skill
 description: Guidelines for estimating and optimizing query costs in BigQuery, including dry-run techniques and partition filtering.
 requires: []

@@ -1,5 +1,5 @@
 ---
-id: swe_best_practices
+name: swe_best_practices
 type: skill
 description: Strict, reusable Software Engineering and optimization standards for Python and GCP Data/ML Engineering.
 requires: []

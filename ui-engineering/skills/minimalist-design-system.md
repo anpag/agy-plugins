@@ -1,5 +1,5 @@
 ---
-id: minimalist-design-system
+name: minimalist-design-system
 type: skill
 description: Strict design system guidelines enforcing a premium, minimalistic, and professional user interface aesthetic.
 requires: []

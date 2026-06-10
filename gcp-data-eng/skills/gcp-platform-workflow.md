@@ -1,5 +1,5 @@
 ---
-id: gcp-platform-workflow
+name: gcp-platform-workflow
 type: skill
 description: Guidelines for GCP authentication pre-checks, cost-estimation, and execution planning for cloud tasks.
 requires: []

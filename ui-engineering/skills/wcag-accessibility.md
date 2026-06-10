@@ -1,5 +1,5 @@
 ---
-id: wcag-accessibility
+name: wcag-accessibility
 type: skill
 description: Comprehensive checklists for meeting WCAG 2.1 AA accessibility standards in web interfaces.
 requires: []

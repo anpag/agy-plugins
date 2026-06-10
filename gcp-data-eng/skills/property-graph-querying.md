@@ -1,5 +1,5 @@
 ---
-id: property-graph-querying
+name: property-graph-querying
 type: skill
 description: Extremely dense and detailed guidelines for querying BigQuery Property Graphs using BigQuery GoogleSQL GQL, including pattern matching, subqueries, and advanced optimization techniques.
 requires: []

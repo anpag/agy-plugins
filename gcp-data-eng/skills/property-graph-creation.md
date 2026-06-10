@@ -1,5 +1,5 @@
 ---
-id: property-graph-creation
+name: property-graph-creation
 type: skill
 description: Extremely dense and detailed guidelines for BigQuery Property Graph creation, including DDL syntax, schema design, constraints, and measures.
 requires: []
