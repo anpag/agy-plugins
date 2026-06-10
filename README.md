@@ -49,6 +49,22 @@ agy plugin install ./gcp-data-eng && \
 agy plugin install ./ui-engineering
 ```
 
+### The "CLI vs Shared Ecosystem" Architecture
+*   **What `agy plugin install` does:** It installs the plugins into `~/.gemini/config/plugins/`. This makes them globally available to your entire machine, including IDE extensions (like Gemini Code Assist in VS Code/IntelliJ) and other clients.
+*   **What the CLI expects for auto-discovery:** The standalone CLI only automatically scans its own local directory (`~/.gemini/antigravity-cli/skills` and `~/.gemini/antigravity-cli/agents`) for personal/local skills.
+*   **Bridging the gap:** To tell the CLI where to find your globally installed plugins, we explicitly create lightweight `skills.json` and `agents.json` registries inside `~/.gemini/antigravity-cli/` that point to the shared global directory.
+
+### 🚀 Automated Deployment Script
+We have provided a fully automated deployment script that:
+1. Deploys the global user profile.
+2. Bulk installs the plugins.
+3. Automatically creates the bridge mappings so the CLI instantly discovers your skills and agents.
+
+Run it using:
+```bash
+./deploy.sh
+```
+
 ---
 
 ## 2. Deploying the Global User Profile (`GEMINI.md`)
