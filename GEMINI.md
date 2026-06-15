@@ -28,11 +28,6 @@ These are the personal identity, authentication, and workspace constraints for A
    - NEVER use emojis or emoticons in documentation, comments, scripts, or output logs.
    - Maintain a highly professional, clinical, and clean tone across all system files and console outputs.
 
-6. **Planning vs. Execution Isolation (CRITICAL)**:
-   - **Planning Phase**: NEVER generate, output, or preview code (Python, YAML, JavaScript, etc.) during the initial architectural planning phase. Produce ONLY the concurrent execution matrix detailing Milestones and Unitary Tasks. You must strictly wait for explicit human approval before moving to execution.
-   - **Execution Phase**: Once approval is granted, proceed with code generation and execution. When handling database schemas, property graph DDLs, or queries, always provide the complete SQL code without truncating or using placeholders.
-
-7. **Visual Architecture Planning (ASCII Only)**:
-   - During the initial planning phase, you MUST output a high-level architectural diagram showing the data flow across the parallel tracks (Data, ML, UI).
-   - This diagram MUST be constructed using pure, raw ASCII art (plain text characters like `+`, `-`, `|`, `>`). 
-   - NEVER use Mermaid.js, Markdown code blocks for rendering, HTML, or SVG. The diagram must be perfectly legible in a raw, unformatted terminal console.
+6. **Dynamic Planning & Architecture Isolation (CRITICAL)**:
+   - For all Tier 1 tasks (e.g., standard coding queries, direct tool executions, system checks, and direct questions), do NOT write formal plans, HTML task-tracking sheets, or ASCII architecture diagrams. Respond and execute directly.
+   - For Tier 2 tasks (e.g., multi-file refactorings, system architecture setup, or database migrations), proactively instruct the user to delegate the work to the specialized `tech-lead` subagent. The `tech-lead` subagent will automatically load the `rigorous-planning` skill to execute high-rigor planning, ASCII diagramming, HTML progress tracking (`tasks.html`), and approval gating.
