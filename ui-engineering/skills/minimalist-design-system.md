@@ -24,25 +24,7 @@ Avoid raw primaries, saturated bright colors, or intense gradients. Default to a
 
 ---
 
-## 2. Spacing & Negative Space (Generous Breathing Room)
-
-*   **Padding:** Default to large padding (`p-6` or `p-8` in Tailwind, `24px` to `32px` in CSS) to allow components to breathe.
-*   **Margins:** Use standard multipliers of `8px` (`8px`, `16px`, `24px`, `32px`, `48px`) to maintain rigid grid alignment.
-*   **Grid Layouts:** Use CSS Grid or Flexbox with a gap of at least `24px` (`gap-6`) to separate content card components cleanly.
-
----
-
-## 3. Typography & Hierarchy
-
-Use modern, clean, geometric sans-serif typefaces (e.g. Inter, Outfit, or standard system-sans) instead of browser defaults.
-
-*   **Headings:** Thick weights (`600` or `700`) with small font sizes to maintain a sleek, premium look.
-*   **Line-Height:** Ensure body text line-height is at least `1.6` to allow comfortable reading.
-*   **Letter-Spacing:** Tighten headings slightly (`tracking-tight`) and widen uppercase labels (`tracking-wider`).
-
----
-
-## 4. WCAG 2.1 AA Accessibility Guidelines
+## 2. WCAG 2.1 AA Accessibility Guidelines
 
 All web interfaces must strictly comply with WCAG 2.1 AA accessibility guidelines.
 
