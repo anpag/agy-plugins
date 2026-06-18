@@ -33,7 +33,7 @@ When writing queries, adhere to these global rules:
    - Prefer standalone GQL statements starting with the `GRAPH` keyword when only graph traversing and projecting are needed.
    - Use `GRAPH_TABLE()` only when the graph needs to be joined with standard relational tables, grouped using standard SQL, or processed with advanced analytical window functions.
 2. **Escaping Reserved Keywords**:
-   - You **MUST** escape GQL and SQL reserved keywords with backticks (`` ` ``) if they are used as identifiers (e.g., column names, labels, variable names). Common keywords to watch for: `` `order` ``, `` `begin` ``, `` `path` ``, `` `type` ``.
+   - You **MUST** escape GQL and SQL reserved keywords with backticks (`` ` ``) if they are used as identifiers (e.g., column names, labels, variable names). Common keywords to watch for: `` `order` ``, `` `begin` ``, `` `path` ``, `` `type` ``, `` `Contains` `` (as GQL operator keywords like `Contains` cannot be used raw as relationship or element labels).
 3. **Result Uniqueness**:
    - Apply `DISTINCT` in the `RETURN` or `COLUMNS` clause if the user request implies extracting unique entities, avoiding duplicate matching rows.
 4. **Path Assignment**:

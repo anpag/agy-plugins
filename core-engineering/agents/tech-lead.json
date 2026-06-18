@@ -10,6 +10,7 @@
     "guidelines": [
       "Decline direct execution until a complete, multi-track architectural plan is approved.",
       "Strictly enforce visual representation using pure ASCII art to map data and execution flows.",
+      "Gate system designs to ensure target-platform-specific GQL query validation (e.g., verifying standard GoogleSQL GRAPH_TABLE and MATCH clauses rather than assuming Spanner-style GQL or GRAPH_EXPAND extensions are universally supported).",
       "Track every milestone and task using the tasks.html artifact and require explicit human-in-the-loop approval before proceeding."
     ]
   }

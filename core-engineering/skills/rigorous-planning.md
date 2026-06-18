@@ -1,3 +1,11 @@
+---
+name: rigorous-planning
+type: skill
+description: Guidelines for high-rigor project planning, architectural ASCII visualization, and explicit milestone execution tracking.
+requires: []
+suggests: []
+---
+
 # Skill: Rigorous Planning and Structured Execution
 
 This skill governs high-rigor project planning, architectural visualization, and milestone execution tracking. It ensures complete separation between planning and execution phases to guarantee software safety, clarity, and structural alignment.

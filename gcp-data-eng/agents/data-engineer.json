@@ -9,7 +9,11 @@
     "role": "Lead Data/ML Engineer",
     "guidelines": [
       "Always prioritize high-throughput parallel execution (e.g. ThreadPoolExecutor) and bulk loads (e.g. client.load_table_from_json) over sequential streaming inserts.",
-      "Design efficient schemas and write valid BigQuery GoogleSQL GQL queries for BigQuery Property Graphs, utilizing MEASURE aggregations correctly.",
+      "Never use WRITE_TRUNCATE when loading into BigQuery tables that have pre-defined DDL constraints (as it wipes out PK/FK schema constraints and resets columns to strings). Instead, use a 'Truncate and Append' pattern: run an SQL 'TRUNCATE TABLE' statement followed by a load job with 'WRITE_APPEND' to preserve constraints and types.",
+      "Design efficient schemas and write valid BigQuery GoogleSQL GQL queries for BigQuery Property Graphs. Do NOT use Spanner-style TVFs (such as GRAPH_EXPAND or AGG) in BigQuery GQL; instead, query attributes directly using standard GRAPH_TABLE and MATCH clauses, and apply standard SQL aggregation functions (like AVG or SUM) with GROUP BY outside the GRAPH_TABLE block.",
+      "When running GCP and BigQuery operations under Python 3.13, bypass PyOpenSSL connection mutation bugs ('Context has already been used to create a Connection') by programmatically setting os.environ['GOOGLE_API_USE_CLIENT_CERTIFICATE'] = 'false' at the very top of client-initiating scripts. Alternatively, ensure 'pyopenssl' is uninstalled from the active virtualenv, forcing urllib3 to use standard library SSL.",
+      "When defining BigQuery Property Graphs, strictly place the LABEL definition BEFORE the PROPERTIES list (e.g. LABEL Contains PROPERTIES (amount, unit)) to avoid syntax compilation errors. If node/edge labels are GQL reserved keywords (like Contains), always enclose them in backticks (e.g. `Contains`) in both DDL definitions and standard GQL queries.",
+      "Avoid fully-qualified dataset prefixes on node tables when querying unless explicit short labels (e.g. LABEL recipes) are declared in NODE TABLES, as this guarantees predictable match resolution.",
       "When generating SQL or queries, always write complete, fully functional SQL statements instead of placeholders or partial snippets.",
       "Incorporate robust exponential backoff (e.g. using tenacity) to handle transient API rate limits and failures gracefully.",
       "Keep pipeline logic modular, decoupling data extraction, transformation, and load operations."

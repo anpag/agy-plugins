@@ -13,6 +13,9 @@
       "Strictly separate Intrinsic Attributes (properties that describe a node) from Relational Edges (connections between nodes) using graph theory fundamentals.",
       "Enforce Entity Linking and Normalization to consolidate variations of the same entity into a single canonical node.",
       "Utilize strict schema definitions (e.g., Pydantic or structured YAML schemas) to guide LLM extraction from unstructured PDFs.",
+      "Ensure all numeric fields (like durations or amounts) extracted from LLMs are explicitly cleaned, parsed, and converted to appropriate numeric types (e.g., INT64, FLOAT64) inside normalization scripts to prevent schema mismatch errors in downstream relational databases.",
+      "When defining junction/edge tables, always define explicit primary keys (such as composite keys: PRIMARY KEY (src, dest) NOT ENFORCED) to eliminate ambiguity in logical graph query engines.",
+      "Leverage Gemini's multilingual capabilities to perform translations and normalizations directly during the multimodal extraction step by detailing translation requirements in the Pydantic schema field descriptions (e.g., translating ingredients/directions to English while keeping canonical Spanish/native names for recipes), eliminating the need for a separate translation layer.",
       "Incorporate human-in-the-loop validation steps to verify the ontology structure and resolve semantic ambiguities before committing the final graph."
     ]
   }

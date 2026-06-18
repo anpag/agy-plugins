@@ -101,6 +101,15 @@ CREATE OR REPLACE PROPERTY GRAPH [project_id.]dataset_name.graph_name
 4. **Labels**:
    - Omit the `LABEL` clause to let BigQuery infer the label name. The inferred label is the base table name (case-sensitive).
    - Use `LABEL label_name` to define a custom label (e.g., mapping table `PersonOwnAccount` to label `Owns`).
+5. **Strict Clause Order (LABEL before PROPERTIES)**:
+   - > [!IMPORTANT]
+   - > When specifying both `LABEL` and `PROPERTIES` clauses on an edge or node table definition, the `LABEL` clause **MUST** be defined *before* the `PROPERTIES` clause. Defining the properties first causes BigQuery to fail with a syntax error: `Expected ")" or "," but got keyword LABEL`.
+6. **Quoting Reserved GQL Keywords**:
+   - > [!WARNING]
+   - > If any node or edge label is a reserved keyword in GoogleSQL or GQL (such as the standard operator `Contains`), you **MUST** enclose the label in backticks (e.g., `` LABEL `Contains` ``) in both the logical graph definition and any subsequent `MATCH` statements. Failing to do so triggers a `Syntax error: Unexpected keyword CONTAINS` compilation error.
+7. **Explicit Node Labeling**:
+   - > [!TIP]
+   - > Though BigQuery defaults node labels to the underlying table name, using fully-qualified dataset prefixes (e.g. `` `project.dataset.recipes` ``) can lead to reference resolution failures during standard SQL / GQL matching. It is highly recommended to declare explicit node labels (e.g., `LABEL recipes`) to ensure predictable match resolution.
 
 ### DDL Example: Financial Graph
 
