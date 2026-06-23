@@ -4,7 +4,7 @@ Welcome to the Antigravity Agentic Plugins and Skills repository. This workspace
 
 ---
 
-## 📖 Design Philosophy
+## Design Philosophy
 
 This repository is built upon three core engineering pillars:
 
@@ -24,7 +24,7 @@ This repository is built upon three core engineering pillars:
 
 ---
 
-## 📁 Directory Structure
+## Directory Structure
 
 The repository adheres strictly to the standardized directory layout:
 
@@ -43,7 +43,7 @@ The repository adheres strictly to the standardized directory layout:
 
 ---
 
-## 🛠️ Best Practices for Contributors
+## Best Practices for Contributors
 
 1.  **Prefer Extension Over Creation**: If a related skill exists, contribute to it rather than starting from scratch to maintain high discovery rates.
 2.  **Target the Trigger**: Ensure the YAML frontmatter `description` in `SKILL.md` is action-oriented, explaining *exactly when* the model should load the skill.
@@ -52,7 +52,7 @@ The repository adheres strictly to the standardized directory layout:
 
 ---
 
-## 🚦 Validation & Testing
+## Validation & Testing
 
 Always validate the repository structure and schemas using the validation tool:
 ```bash
