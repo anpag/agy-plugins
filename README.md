@@ -1,74 +1,62 @@
-# Antigravity (`agy`) Custom Plugins & Global User Profiles
+# Antigravity Agentic Plugins & Skills Repository
 
-This repository houses the modular, domain-specific plugins and global user configurations for the Antigravity (`agy`) CLI environment.
+Welcome to the Antigravity Agentic Plugins and Skills repository. This workspace contains a collection of modular, production-grade plugins, specialized agent personas, and triggerable skills designed to supercharge autonomous development workflows.
 
 ---
 
-## Repository Architecture
+## 📖 Design Philosophy
 
-The codebase has been refactored into a fully decoupled, scalable architecture where personal identity is cleanly separated from generic engineering capabilities:
+This repository is built upon three core engineering pillars:
 
-```text
-agy-plugins/
- ├── GEMINI.md                    # Baseline Global User Profile (Identity, Auth, Models)
- ├── README.md                    # This orchestration & deployment manual
- ├── core-engineering/            # Core standards plugin (PEP 8, Modularity)
- ├── gcp-data-eng/                # GCP Data/ML Engineering, BigQuery & Property Graphs
- └── ui-engineering/              # Premium minimalist UI design and WCAG accessibility
+### 1. Skills as Stopgaps
+*   **Targeted Resolution**: Skills are designed to bridge specific capability gaps. They should only be written when an LLM fails a task even after having access to standard documentation.
+*   **Anti-Bloat**: A skill is **not** a summary of technical manuals. It is the *minimum rule set* required to make observed model failure modes uncommon.
+*   **Keep it Lean**: Over-specified skills go stale quickly and are ignored by models. We focus on lean, high-impact instructions.
+
+### 2. Evals as Contracts
+*   Every skill is paired with an `EVAL.md` file that acts as a declarative contract.
+*   The eval defines the exact problem context, a test prompt, and the expected deterministic outcome. A skill must demonstrate measurable improvement over baseline behavior to justify its context window cost.
+
+### 3. Clear Domain Separation
+*   **Core Engineering**: Base code quality, structured logging, testing, and concurrency safety.
+*   **GCP & Data Engineering**: Secure cloud workflows, cost-controlled BigQuery operations, and Knowledge Graph/Ontology design.
+*   **UI Engineering**: Premium, minimalist visual design systems and strict WCAG 2.1 AA accessibility compliance.
+
+---
+
+## 📁 Directory Structure
+
+The repository adheres strictly to the standardized directory layout:
+
+```
+<plugin-folder>/
+├── plugin.json                 # Plugin metadata & capabilities
+├── agents/                     # Specialized agent personas
+│   └── <agent-name>.json
+└── skills/                     # Triggerable skills
+    └── <skill-name>/
+        ├── SKILL.md            # YAML frontmatter + core guidelines
+        ├── EVAL.md             # Declarative testing contract
+        ├── references/         # (Optional) Supplementary heavy context
+        └── scripts/            # (Optional) Helper scripts & automations
 ```
 
 ---
 
-## 1. Operating & Installing Plugins
+## 🛠️ Best Practices for Contributors
 
-Manage your plugin installations using the native Antigravity `plugin` subcommands.
+1.  **Prefer Extension Over Creation**: If a related skill exists, contribute to it rather than starting from scratch to maintain high discovery rates.
+2.  **Target the Trigger**: Ensure the YAML frontmatter `description` in `SKILL.md` is action-oriented, explaining *exactly when* the model should load the skill.
+3.  **Split Large Skills**: When a skill grows too large, move deep syntax reference sheets or long code snippets into a `references/` subdirectory to conserve the active context window.
+4.  **Write the Eval First**: Before drafting a skill, capture the observed failure mode in an `EVAL.md` file, then iterate on the skill instructions until the model consistently passes the eval.
 
-### Standard Subcommands:
-*   **List installed plugins:**
-    ```bash
-    agy plugin list
-    ```
-*   **Install a local plugin:**
-    ```bash
-    agy plugin install /path/to/plugin_directory
-    ```
-*   **Uninstall an active plugin:**
-    ```bash
-    agy plugin uninstall <plugin-name>
-    ```
-*   **Validate plugin configuration schemas:**
-    ```bash
-    agy plugin validate /path/to/plugin_directory
-    ```
+---
 
-### Bulk Installation Command:
-To install or refresh all plugins hosted in this repository:
+## 🚦 Validation & Testing
+
+Always validate the repository structure and schemas using the validation tool:
 ```bash
-agy plugin install ./core-engineering && \
-agy plugin install ./gcp-data-eng && \
-agy plugin install ./ui-engineering
+agy plugin validate ./core-engineering
+agy plugin validate ./gcp-data-eng
+agy plugin validate ./ui-engineering
 ```
-
-### The "CLI vs Shared Ecosystem" Architecture
-*   **What `agy plugin install` does:** It installs the plugins into `~/.gemini/config/plugins/`. This makes them globally available to your entire machine, including IDE extensions (like Gemini Code Assist in VS Code/IntelliJ) and other clients.
-*   **What the CLI expects for auto-discovery:** The standalone CLI only automatically scans its own local directory (`~/.gemini/antigravity-cli/skills` and `~/.gemini/antigravity-cli/agents`) for personal/local skills.
-*   **Bridging the gap:** To tell the CLI where to find your globally installed plugins, we explicitly create lightweight `skills.json` and `agents.json` registries inside `~/.gemini/antigravity-cli/` that point to the shared global directory.
-
----
-
-## 2. Deploying the Global User Profile (`GEMINI.md`)
-
-The `GEMINI.md` file defines your personal user profile, Git identity overrides, sandbox environment constraints, and available model definitions. It acts as the central orchestrator and must be deployed to your home configuration folder to be loaded globally.
-
-### Deployment Path:
-The profile must be located exactly at:
-`~/.gemini/GEMINI.md` (fully expanded as `/Users/antoniopaulino/.gemini/GEMINI.md`)
-
-### Installation Command:
-Run the following to deploy or update your global user profile:
-```bash
-cp ./GEMINI.md ~/.gemini/GEMINI.md
-```
-
-### Decoupled Profile Role:
-This profile has been intentionally stripped of code-level styles, and instead contains the **Dynamic Plugin & Agent Discovery** engine. This engine automatically scans, registers, and contextually delegates tasks to your installed plugins (`gcp-data-eng`, `ui-engineering`), preventing workspace noise or duplicate authentication flows when executing local-only coding tasks.
