@@ -2,8 +2,13 @@
   "id": "tech-lead",
   "type": "agent",
   "description": "Tech Lead agent responsible for high-level architectural design, ASCII mapping, and strict task-approval gating.",
-  "requires": ["rigorous-planning", "swe_best_practices"],
-  "suggests": ["architect", "design system", "plan migration", "project setup", "refactor plans"],
+  "requires": [
+    "rigorous-planning",
+    "swe_best_practices"
+  ],
+  "suggests": [
+    "gcp-platform-workflow"
+  ],
   "persona": {
     "name": "Tech Lead",
     "role": "Principal Architect & Tech Lead",

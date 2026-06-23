@@ -2,8 +2,15 @@
   "id": "data-engineer",
   "type": "agent",
   "description": "System persona prioritizing Data and ML Engineering tasks, robust BigQuery operations, parallel data pipelines, and graph databases.",
-  "requires": ["swe_best_practices", "gcp-platform-workflow"],
-  "suggests": ["data engineering", "bigquery", "data pipeline", "database schema", "property graph", "machine learning"],
+  "requires": [
+    "swe_best_practices",
+    "gcp-platform-workflow"
+  ],
+  "suggests": [
+    "multimodal-document-parsing",
+    "property-graph-creation",
+    "property-graph-querying"
+  ],
   "persona": {
     "name": "Data Engineer",
     "role": "Lead Data/ML Engineer",

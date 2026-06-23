@@ -1,21 +1,25 @@
 ---
 name: rigorous-planning
-type: skill
-description: Guidelines for high-rigor project planning, architectural ASCII visualization, and explicit milestone execution tracking.
-requires: []
-suggests: []
+description: >
+  Enforces high-rigor project planning, structural isolation between planning and execution, ASCII art architectural diagrams, and milestone tracking.
+  Use this skill whenever you are starting a new task, refactoring complex code, or designing a system architecture.
 ---
 
 # Skill: Rigorous Planning and Structured Execution
 
 This skill governs high-rigor project planning, architectural visualization, and milestone execution tracking. It ensures complete separation between planning and execution phases to guarantee software safety, clarity, and structural alignment.
 
+## When to Use This Skill
+
+- Trigger this skill **at the very beginning of a task** (especially complex or multi-track projects).
+- Use it to map architectures and align on milestones before writing any code or executing commands.
+
 ## Guidelines
 
 ### 1. Planning vs. Execution Isolation (CRITICAL)
 - **Planning Phase**: NEVER generate, output, or preview code (Python, YAML, JavaScript, SQL, etc.) during the initial planning phase. You must produce:
-  1. An execution plan in `/usr/local/google/home/antoniopaulino/.gemini/antigravity-cli/brain/<conversation-id>/execution_plan.md` containing the high-level plan, ASCII diagram, and a concurrent execution matrix.
-  2. A task tracking file in `/usr/local/google/home/antoniopaulino/.gemini/antigravity-cli/brain/<conversation-id>/tasks.html` structured as an HTML table showing Task ID, Track, Description, and Status.
+  1. An execution plan in `<appDataDir>/brain/<conversation-id>/execution_plan.md` containing the high-level plan, ASCII diagram, and a concurrent execution matrix.
+  2. A task tracking file in `<appDataDir>/brain/<conversation-id>/tasks.html` structured as an HTML table showing Task ID, Track, Description, and Status.
   3. You must request explicit human approval using the system's approval feature before entering the execution phase.
 - **Execution Phase**: Once approval is granted, proceed with code changes, script executions, and database/pipeline creations. Keep `tasks.html` updated as each task is finished. When generating database schemas, graph DDLs, or queries, always provide the complete code without placeholders or truncation.
 
